@@ -11,7 +11,7 @@ RUN /build/prepare.sh && \
 	/build/services.sh && \
 	/build/cleanup.sh
 
-VOLUME ["/etc/ssl/openvpn-client"]
+VOLUME ["/etc/ssl/openvpn-server"]
 
 EXPOSE 389
 
