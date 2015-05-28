@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+chmod 600 /etc/ssl/openvpn-server/*
+
+exec openvpn --dev tun \
+	--dh /etc/ssl/openvpn-server/openvpn-server-dh.pem \
+	--ca /etc/ssl/openvpn-server/openvpn-server-ca.pem \
+	--cert /etc/ssl/openvpn-server/openvpn-server-cert.pem \
+	--key /etc/ssl/openvpn-server/openvpn-server-key.pem \
+	--tls-server \
+	--server $OPENVPN_SERVER_IPS $OPENVPN_SERVER_SUBNET \
+	--proto tcp --port 1194 --comp-lzo adaptive \
+	--ifconfig-pool-persist ipp.txt --persist-tun  \
+	--persist-key --client-to-client --keepalive 10 120
