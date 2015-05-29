@@ -13,6 +13,6 @@ RUN /build/prepare.sh && \
 
 VOLUME ["/etc/ssl/openvpn-server"]
 
-EXPOSE 389
+EXPOSE 1194
 
 CMD ["/sbin/my_init"]
