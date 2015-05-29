@@ -4,10 +4,10 @@ set -e
 chmod 600 /etc/ssl/openvpn-server/*
 
 exec openvpn --dev tun \
-	--dh /etc/ssl/openvpn-server/openvpn-server.dh.pem \
-	--ca /etc/ssl/openvpn-server/openvpn-server.ca.pem \
-	--cert /etc/ssl/openvpn-server/openvpn-server.cert.pem \
-	--key /etc/ssl/openvpn-server/openvpn-server.key.pem \
+	--dh /etc/ssl/openvpn-server/dh.pem \
+	--ca /etc/ssl/openvpn-server/ca.pem \
+	--cert /etc/ssl/openvpn-server/cert.pem \
+	--key /etc/ssl/openvpn-server/key.pem \
 	--tls-server \
 	--server $OPENVPN_SERVER_IPS $OPENVPN_SERVER_SUBNET \
 	--topology subnet \
