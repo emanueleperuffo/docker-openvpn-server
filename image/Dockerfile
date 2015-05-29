@@ -6,6 +6,7 @@ ADD . /build
 
 ENV OPENVPN_SERVER_IPS 10.8.0.0
 ENV OPENVPN_SERVER_SUBNET 255.255.0.0
+ENV OPENVPN_SERVER_DEV tun10
 
 RUN /build/prepare.sh && \
 	/build/services.sh && \
