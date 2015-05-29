@@ -1,8 +1,6 @@
 #!/bin/sh
 set -e
 
-chmod 600 /etc/ssl/openvpn-server/*
-
 exec openvpn --dev tun \
 	--dh /etc/ssl/openvpn-server/dh.pem \
 	--ca /etc/ssl/openvpn-server/ca.pem \
