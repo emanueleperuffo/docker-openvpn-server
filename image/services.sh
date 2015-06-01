@@ -5,6 +5,8 @@ set -x
 
 ## Install openvpn
 $minimal_apt_get_install openvpn
+#client config dir
+mkdir /etc/openvpn/clients
 
 ## Enable openvpn-server
 mkdir /etc/service/openvpn-server

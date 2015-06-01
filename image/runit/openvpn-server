@@ -7,8 +7,10 @@ exec openvpn --dev $OPENVPN_SERVER_DEV \
 	--cert /etc/ssl/openvpn-server/cert.pem \
 	--key /etc/ssl/openvpn-server/key.pem \
 	--tls-server \
-	--server $OPENVPN_SERVER_IPS $OPENVPN_SERVER_SUBNET \
-	--topology subnet \
+	--mode server \
+	--topology "subnet" --push "topology subnet" \
+	--ifconfig $OPENVPN_SERVER_IP $OPENVPN_SERVER_NETMASK \
+	--push "route-gateway $OPENVPN_SERVER_IP" \
 	--proto tcp --port 1194 --comp-lzo adaptive \
-	--ifconfig-pool-persist ipp.txt --persist-tun  \
-	--persist-key --client-to-client --up-delay --keepalive 10 120
+	--client-config-dir /etc/openvpn/clients --ccd-exclusive \
+	--persist-tun --persist-key --client-to-client --up-delay --keepalive 10 120
