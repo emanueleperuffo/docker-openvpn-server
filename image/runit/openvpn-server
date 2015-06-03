@@ -12,4 +12,4 @@ exec openvpn --dev $OPENVPN_SERVER_DEV \
 	--push "route-gateway $OPENVPN_SERVER_IP" \
 	--client-config-dir /vpn/ccd-dir -ccd-exclusive \
 	--proto tcp-server --port 1194 --comp-lzo adaptive \
-	--persist-tun --persist-key --client-to-client --up-delay --keepalive 10 120
+	--persist-tun --persist-key --client-to-client --keepalive 10 120
