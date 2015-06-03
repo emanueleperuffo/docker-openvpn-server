@@ -12,7 +12,7 @@ RUN /build/prepare.sh && \
 	/build/services.sh && \
 	/build/cleanup.sh
 
-VOLUME ["/etc/ssl/openvpn-server", "/vpn/ccd-dir"]
+VOLUME ["/etc/ssl/openvpn-server", "/etc/openvpn/clients"]
 
 EXPOSE 1194
 
